@@ -1,0 +1,17 @@
+{
+    "name": "mod-name"  // has to match the name in the folder foramt
+    "version" : "0.0.1",
+    "title" : "Thje title when selecting the mod in the mod panel",
+    "author" : "your name",
+    "factorio_version" : "0.17", // the version of factorio the mod is for. Must be the major version, can't be like "0.17.1"
+    "contact" : "optional",
+    "homepage" : "where to be found on the internet",
+    "description" : "What it does",
+    "dependencies" : {
+        "base" : "0.17" // the version of the base game that is required
+    } // what mods your mods need
+// dependencie - "mod-name-a",
+// optional-dependencie - "? mod-name-b",
+// incompatible - "! mod-name-c"
+// version check - "mod-name-d < 0.0.1"
+}

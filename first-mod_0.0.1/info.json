@@ -1,0 +1,8 @@
+{
+    "name" : "first-mod",
+    "version" : "0.0.1",
+    "title" : "First Mod in the mod panel",
+    "author" : "Elijah Ochoa",
+    "factorio_version" : "2.0",
+    "description" : "This is the first mod I made"    
+}

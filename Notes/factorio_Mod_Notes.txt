@@ -1,0 +1,26 @@
+Episode 1 - Basic Mod Structure
+Folder name format: {mod-name}_{version} (Example: "newMod_0.0.1")
+
+Files:
+- info.json
+- thumbnail.png  -- Ideally 144x144px
+-- changelog.txt -- Version history of thew mod to be shown in mod browser (Optional)
+- settings.lua - settings-updates.lua (settings-final-fixes.lua) - lets the user change the settings of the mod
+- data.lua -- updates.lua data-final-fixes.lua - This is the source code. Defines prototypes
+- control.lua -- Runtime application of the game
+
+Fist step is loading settings in the natrual sort order
+sub folder:
+- Locale -- defines translations
+- Scenarios
+- Campaigns
+- Tutorals
+- Migrations -- Handles prototypes changtes between 
+
+//Example info.json
+{
+     name : "mod-name" // must match the folder name format
+     "version:" : "0.0.1"
+}
+More on mods:
+https://wiki.factorio.com/Tutorial:Mod_structure
