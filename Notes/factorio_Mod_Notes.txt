@@ -15,7 +15,7 @@ sub folder:
 - Scenarios
 - Campaigns
 - Tutorals
-- Migrations -- Handles prototypes changtes between 
+- Migrations -- Handles prototypes changtes between updates to the mod. If no migration script is written, old prototypes will be removed from the world.
 
 //Example info.json
 {
@@ -24,3 +24,23 @@ sub folder:
 }
 More on mods:
 https://wiki.factorio.com/Tutorial:Mod_structure
+
+How factorio loads mods
+
+- Load order
+     - Mods are loaded by dependency then by aplphabetical order
+          - dependencies are either optional, required, or restrictive (cant have these). Failed dependencies causes game not to load
+     - Settings stage (1st stage)
+          - defines mod settings. Looks through all mods then executes for settings.lua, then settings-updates.lua, then settings-final-fixes.lua
+          - This stage does not have access to prototype or Runtime data.
+          - Mod settings Tutoral: https://wiki.factorio.com/Tutorial:Mod_settings
+     - Data Stage (2nd stage)
+          - Declare prototypes for tech, entities and more. Anything else is restricted
+          - Looks through then executes all mods for data.lua, then data-updates.lua, then data-updates-final.lua
+          - prototype documentation: https://lua-api.factorio.com/latest/index-prototype.html
+     - Migrations
+          - Fixes saves after mod updates. Whenever a prototype changes due to mod update, you need a migration script to update the prototypes or else they will be removed from the game.
+     - Runtime stage
+          - Runs the control.lua script. This is what makes the mod do things during the game instead of before the game.
+          - Uses event handlers to access tables 
+          - Reloaded on game restart or reload
